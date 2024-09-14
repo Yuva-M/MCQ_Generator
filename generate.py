@@ -5,12 +5,16 @@ from langchain_core.exceptions import OutputParserException
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 import streamlit as st
+import streamlit as st
+
+groq_api_key = st.secrets["GROQ_API_KEY"]
+
 
 # Load environment variables
 load_dotenv()
 
 # Initialize Groq LLM
-groq_api_key = os.getenv("GROQ_API_KEY")
+# groq_api_key = os.getenv("GROQ_API_KEY")
 llm = ChatGroq(temperature=0.7, groq_api_key=groq_api_key, model_name="llama-3.1-70b-versatile")
 
 # Define the output parser
